@@ -16,7 +16,7 @@ class MejaController extends Controller
         return view('layout.meja', $data);
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
 
         $data = new Meja;

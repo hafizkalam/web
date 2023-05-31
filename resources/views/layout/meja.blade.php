@@ -25,7 +25,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <form class="form-inline" action="{{ route('store') }}" method="POST">
+                    <form class="form-inline" action="{{ route('create') }}" method="POST">
                         @csrf
                             <div class="form-group mb-2">
                                 <input type="text" class="form-control" name="no_meja" placeholder="Tambahkan Nomor Meja">
@@ -38,7 +38,7 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">NO Meja</th>
+                                <th scope="col">No Meja</th>
                                 <th scope="col">QR code</th>
                             </tr>
                         </thead>
