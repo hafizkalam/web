@@ -10,7 +10,7 @@ class WebController extends Controller
     public function show()
     {
         $data['data'] = Web::get();
-        return view('layout.web', $data);
+        return view('admin.web', $data);
     }
 
     function createedit(Request $request)

@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('admin.admin')
 
 @section('content')
 <div class="content-header">
@@ -22,7 +22,6 @@
   <section class="content">
     <div class="callout callout-info">
       <h5>Selamat Datang!</h5>
-
       <p>Sistem Informasi Pemesanan Makanan Berbasis Website</p>
     </div>
   </section>

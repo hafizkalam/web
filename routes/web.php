@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MejaController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,16 +27,21 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     //kalau disini harus login dahulu
-    Route::get("home", [AdminController::class, 'index']);
+    Route::get('home', [AdminController::class, 'index']);
 
     // Admin Edit Web
-    Route::get("web", [WebController::class, 'show']); // Show tampilan
-    Route::post("web", [WebController::class, 'createedit']); //Create Edit Insert Artikel
+    Route::get('web', [WebController::class, 'show']); // Show tampilan
+    Route::post('web', [WebController::class, 'createedit']); //Create Edit Insert Artikel
 
     // Admin Create QrCode and Table
-    Route::get("meja", [MejaController::class, 'show']); //Show content
-    Route::post("create", [MejaController::class, 'create']); // Store to database
-    Route::get("qrcode/{id}", [MejaController::class, 'generate']); // Generate QrCode
+    Route::get('meja', [MejaController::class, 'show']); //Show content
+    Route::post('create', [MejaController::class, 'create']); // Store to database
+    Route::get('qrcode/{id}', [MejaController::class, 'generate']); // Generate QrCode
 
+    // Admin View Transaction
+    Route::get('transaksi', [TransaksiController::class, 'show']);
+
+    // Admin Create Menu
+    Route::get('menu', [MenuController::class, 'show']);
 // Route::get('/home', [App\Http\Controllers\AdminController::class, 'index']);
 });

@@ -26,37 +26,28 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ url('penjualan') }}" class="nav-link">
+    <a href="{{ url('transaksi') }}" class="nav-link">
         <i class="nav-icon fas fa-solid fa-shopping-cart"></i>
         <p>
             Transaksi
         </p>
     </a>
 </li >
-{{--
 
 <li class="nav-item">
-    <a href="{{ url('adminmenu/menu') }}" class="nav-link">
-        <i class="nav-icon fas fa-solid fa-square-list"></i>
+    <a href="{{ url('menu') }}" class="nav-link">
+        <i class="nav-icon fas fa-solid fa-bars"></i>
         <p>
             Menu
         </p>
     </a>
 </li >
+
 <li class="nav-item">
-    <a href="{{ url('adminmenu/transaksi') }}" class="nav-link">
-        <i class="nav-icon fas fa-shopping-cart"></i>
+    <a href="{{ url('user') }}" class="nav-link">
+        <i class="nav-icon fas fa-duotone fa-users"></i>
         <p>
-            Transaksi
+            User
         </p>
     </a>
 </li >
-<li class="nav-item">
-    <a href="{{ url('adminmenu/web') }}" class="nav-link">
-        <i class="nav-icon fas fa-shopping-cart"></i>
-        <p>
-            Web
-        </p>
-    </a>
-</li >
- --}}

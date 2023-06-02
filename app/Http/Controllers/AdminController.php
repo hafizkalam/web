@@ -24,7 +24,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('layout.admin')->with([
+        return view('admin.admin')->with([
             'user' => Auth::user(),
         ]);
         // return view('layout.admin');

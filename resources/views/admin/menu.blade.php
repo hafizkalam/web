@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('admin.admin')
 
 @section('content')
 <section class="content-header">
@@ -29,10 +29,9 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>No</th>
                                     <th>Nama</th>
-                                    <th>Deskripsi</th>
-                                    <th>Action</th>
+                                    <th>Harga</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,7 +39,7 @@
                                 <tr>
                                     <td>{{ $value->id }}</td>
                                     <td>{{ $value->name }}</td>
-                                    <td>{{ $value->description }}</td>
+                                    <td>{{ $value->harga }}</td>
                                     <td>
 
                                         <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-edit">
