@@ -25,9 +25,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <form class="form-inline" action="{{ route('create') }}" method="POST">
+                    {{-- <form class="form-inline" action="{{ route('create') }}" method="POST"> --}}
                         @csrf
-                            <div class="form-group mb-2">
+                            <div class="form-group mb-8">
                                 <input type="text" class="form-control" name="no_meja" placeholder="Tambahkan Nomor Meja">
                             </div>
                             <button type="submit" class="btn btn-primary ml-1 mb-2">Create</button>

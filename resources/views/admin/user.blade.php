@@ -42,9 +42,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $no = 0;?>
                                 @foreach ($data as $value)
+                                <?php $no++ ;?>
                                 <tr>
-                                    <td>{{ $value->id }}</td>
+                                    <td>{{ $no }}</td>
                                     <td>{{ $value->name }}</td>
                                     <td>{{ $value->email }}</td>
                                     <td>{{ $value->level }}</td>

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
-    public $fillable = ["name, harga"];
+    public $fillable = ["name", "harga", "url"];
 }
