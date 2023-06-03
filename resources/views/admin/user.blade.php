@@ -5,12 +5,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Website</h1>
+                <h1>User</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Website</li>
+                    <li class="breadcrumb-item active">User</li>
                 </ol>
             </div>
         </div>
@@ -37,7 +37,6 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Email</th>
-                                    <th>Level</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -49,7 +48,6 @@
                                     <td>{{ $no }}</td>
                                     <td>{{ $value->name }}</td>
                                     <td>{{ $value->email }}</td>
-                                    <td>{{ $value->level }}</td>
                                     <td>
                                         <a href="userdelete/{{ $value->id }}" class="btn btn-danger float-right">Delete</a>
 
@@ -98,18 +96,6 @@
                   <input type="email" name="email" class="form-control">
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-1 col-form-label">Level</label>
-                <div class="col-sm-11">
-                  <input type="text" name="level" class="form-control">
-                </div>
-              </div>
-              {{-- <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-1 col-form-label">Password</label>
-                <div class="col-sm-11">
-                  <input type="password" name="password" class="form-control">
-                </div>
-              </div> --}}
             </div>
           <div class="modal-footer justify-content-between bg-light">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -149,13 +135,6 @@
                 <input type="email" name="id" id="id" class="d-none">
               </div>
             </div>
-            <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-1 col-form-label">Level</label>
-              <div class="col-sm-11">
-                <input type="text" name="level" id="level" class="form-control">
-                <input type="text" name="id" id="id" class="d-none">
-              </div>
-            </div>
           </div>
           <div class="modal-footer justify-content-between bg-light">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -178,7 +157,6 @@
        var data = table.row(this).data();
        $("#name").val(data[1]);
        $("#email").val(data[2]);
-       $("#level").val(data[3]);
     // alert(data[1]);
    });
 </script>

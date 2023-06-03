@@ -23,7 +23,7 @@ class UserController extends Controller
             "name" => $request->name,
             "email" => $request->email,
             "password" => Hash::make("123"),
-            "level" => $request->level,
+            "level" => "2",
 
         );
 
