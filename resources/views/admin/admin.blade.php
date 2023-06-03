@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{ asset('/') }}plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('/') }}dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -29,11 +31,18 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
-        <li class="nav-item">
-            <a class="nav-item" href="{{ url('logout') }}" role="button">
-                <i class="nav-icon fas fa-sign-out-alt"></i>Logout
-            </a>
-        </li>
+            <li class="nav-item">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <button class="btn btn-primary" type="submit">Logout</button>
+                </form>
+
+                {{-- <a class="nav-link" href="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a> --}}
+            </li>
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -55,7 +64,7 @@
             </div>
             <div class="info">
                 <a href="#" class="d-block">
-
+                    {{Auth::user()->name}}
                 </a>
             </div>
         </div>
@@ -104,8 +113,14 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('/') }}dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('/') }}dist/js/demo.js"></script>
-    <script src="{{ asset('/') }}plugins/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}dist/js/demo.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}plugins/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    @section('script')
+    @show
+
 </body>
 </html>
 {{--
