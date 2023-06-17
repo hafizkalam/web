@@ -34,7 +34,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
+                                    <th>Nama Menu</th>
                                     <th>Harga</th>
                                     <th>Foto</th>
                                     <th>Action</th>
@@ -48,7 +48,7 @@
                                     <td>{{ $no }}</td>
                                     <td>{{ $value->name }}</td>
                                     <td>Rp.{{ $value->harga }}</td>
-                                    <td>{{ $value->url }}</td>
+                                    <td><img width="100px" src="{{ url('/picture_menu/'.$value->url) }}"></td>`
                                     <td>
                                         <a href="menudelete/{{ $value->id }}" class="btn btn-danger float-right">Delete</a>
 
@@ -85,7 +85,7 @@
           </div>
           <div class="modal-body">
               <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-1 col-form-label">Nama</label>
+                <label for="inputEmail3" class="col-sm-1 col-form-label">Nama Menu</label>
                 <div class="col-sm-11">
                   <input type="text" name="name" class="form-control">
                 </div>
@@ -128,7 +128,7 @@
           </div>
           <div class="modal-body">
             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-1 col-form-label">Nama</label>
+              <label for="inputEmail3" class="col-sm-1 col-form-label">Nama Menu</label>
               <div class="col-sm-11">
                 <input type="text" name="name" id="name" class="form-control">
                 <input type="text" name="id" id="id" class="d-none">

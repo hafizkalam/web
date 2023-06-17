@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Transaksi extends Model
 {
     use HasFactory;
-    public $fillable = ["pesanan, harga, tgl_pembayaran, tipe_pembayaran, no_meja"];
+    public $fillable = ["pesanan", "harga", "tgl_pembayaran", "tipe_pembayaran", "no_meja"];
 }

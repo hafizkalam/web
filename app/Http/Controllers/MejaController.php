@@ -22,7 +22,7 @@ class MejaController extends Controller
         $data = new Meja;
         $data->no_meja = $request->no_meja;
         $data->save();
-        return back();
+        return view('admin.meja', $data);
 
     }
 

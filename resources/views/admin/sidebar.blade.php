@@ -1,11 +1,11 @@
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a href="{{ url('home') }}" class="nav-link">
         <i class="nav-icon fas fa-home"></i>
         <p>
             Home
         </p>
     </a>
-</li>
+</li> --}}
 
 @if (Auth::user()->level == '1')
 <li class="nav-item">

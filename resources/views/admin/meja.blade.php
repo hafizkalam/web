@@ -61,3 +61,15 @@
     <script script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 @endsection
+
+@section('script')
+<script>
+    $("#example1").DataTable();
+    $('#example1 tbody').on('click', 'tr', function() {
+        var table = $('#example1').DataTable();
+        var data = table.row(this).data();
+        $("#description").val(data[2]);
+        $("#name").val(data[1]);
+    });
+</script>
+@endsection

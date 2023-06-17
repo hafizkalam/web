@@ -5,12 +5,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Website</h1>
+                <h1>Transaksi</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Website</li>
+                    <li class="breadcrumb-item active">Transaksi</li>
                 </ol>
             </div>
         </div>
@@ -37,9 +37,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $no = 0;?>
                                 @foreach ($data as $value)
+                                <?php $no++ ;?>
                                 <tr>
-                                    <td>{{ $value->id }}</td>
+                                    <td>{{ $no }}</td>
                                     <td>{{ $value->pesanan }}</td>
                                     <td>{{ $value->tgl_transaksi }}</td>
                                     <td>{{ $value->tipe_pembayaran }}</td>
@@ -70,7 +72,7 @@
 <div class="modal fade" id="modal-edit">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <form method="POST" id="saveEdit" enctype='multipart/form-data' action="web">
+            <form method="POST" id="saveEdit" enctype='multipart/form-data' action="transaksi">
                 @csrf
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Website</h4>
@@ -80,10 +82,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-1 col-form-label">Description</label>
+                        <label for="inputEmail3" class="col-sm-1 col-form-label">Pesanan</label>
                         <div class="col-sm-11">
                             <input type="text" name="description" id="description" class="form-control">
-                            <input type="text" name="name" id="name" class="d-none">
+                            <input type="text" name="pesanan" id="pesanan" class="d-none">
                         </div>
                     </div>
                 </div>
@@ -102,6 +104,7 @@
 
 @section('script')
 <script>
+    $("#example1").DataTable();
     $('#example1 tbody').on('click', 'tr', function() {
         var table = $('#example1').DataTable();
         var data = table.row(this).data();
