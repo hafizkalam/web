@@ -48,7 +48,7 @@
                                     <td>{{ $no }}</td>
                                     <td>{{ $value->name }}</td>
                                     <td>Rp.{{ $value->harga }}</td>
-                                    <td><img width="100px" src="{{ url('/picture_menu/'.$value->url) }}"></td>`
+                                    <td><img width="100px" src="{{ url('/picture_menu/'.$value->url) }}"></td>
                                     <td>
                                         <a href="menudelete/{{ $value->id }}" class="btn btn-danger float-right">Delete</a>
 
