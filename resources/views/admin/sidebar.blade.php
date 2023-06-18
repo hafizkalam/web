@@ -1,21 +1,30 @@
-{{-- <li class="nav-item">
+<li class="nav-item">
     <a href="{{ url('home') }}" class="nav-link">
         <i class="nav-icon fas fa-home"></i>
         <p>
             Home
         </p>
     </a>
-</li> --}}
+</li>
 
 @if (Auth::user()->level == '1')
-<li class="nav-item">
+{{-- <li class="nav-item">
 <a href="{{ url('web') }}" class="nav-link">
     <i class="nav-icon fas fa-light fa-house-user"></i>
     <p>
         Web
     </p>
 </a>
-</li >
+</li > --}}
+
+<li class="nav-item">
+    <a href="{{ url('meja') }}" class="nav-link">
+        <i class="nav-icon fas fa-solid fa-qrcode"></i>
+        <p>
+            Meja
+        </p>
+    </a>
+</li>
 
 <li class="nav-item">
     <a href="{{ url('transaksi') }}" class="nav-link">
@@ -36,15 +45,6 @@
 </li >
 
 @elseif(Auth::user()->level == '2')
-<li class="nav-item">
-    <a href="{{ url('meja') }}" class="nav-link">
-        <i class="nav-icon fas fa-solid fa-qrcode"></i>
-        <p>
-            Meja
-        </p>
-    </a>
-</li>
-
 <li class="nav-item">
     <a href="{{ url('transaksi') }}" class="nav-link">
         <i class="nav-icon fas fa-solid fa-shopping-cart"></i>
