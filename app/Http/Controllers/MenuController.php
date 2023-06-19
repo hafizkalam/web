@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MasterTenant;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
     public function show()
     {
-        $data['data'] = Menu::get();
-
+        $test = Auth::user();
+        $data['data'] = MasterTenant::where('name_tenant',$test->name)->get();
+// echo "<pre>";
+//         print_r($data);
+//         exit;
         return view('admin.menu', $data);
     }
 
@@ -27,7 +32,7 @@ class MenuController extends Controller
         );
         // echo("/picture_menu/".$fileName);
         // dd($vaUpdate);
-        Menu::create($vaUpdate);
+        MasterTenant::create($vaUpdate);
 
         // if ($request->hasFile('url')) {
         //     $path = $request->file('url')->store('menu');

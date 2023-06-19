@@ -43,12 +43,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $value)
-                            <tr>
-                               <td>{{ $value->no_meja }}</td>
-                               <td>
-                                   <a href="{{ route('generate',$value->id) }}" class="btn btn-primary" target="blank">Generate</a>
-                               </td>
+                            <?php $no = 0;?>
+                                @foreach ($data as $value)
+                                <?php $no++ ;?>
+                                <tr>
+                                    <td>{{ $no }}</td>
+                                    <td>{{ $value->no_meja }}</td>
+                                    <td>
+                                        <a href="{{ route('generate',$value->id) }}" class="btn btn-primary" target="blank">Generate</a>
+                                    </td>
                              </tr>
                             @endforeach
                         </tbody>

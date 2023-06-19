@@ -51,13 +51,13 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
+          {{-- <li><a href="#hero">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#chefs">Chefs</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -73,8 +73,9 @@
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          </li> --}}
+          {{-- <li><a href="#contact">Contact</a></li> --}}
+          <li><button class="bg-primary rounded-pill text-white ">Table Number</button></li>
           {{-- <li><a class="btn" href="{{url('login')}}">Login</a></li> --}}
         </ul>
       </nav><!-- .navbar -->
@@ -827,7 +828,7 @@
     </section><!-- End Chefs Section -->
 
     <!-- ======= Book A Table Section ======= -->
-    <section id="book-a-table" class="book-a-table">
+    {{-- <section id="book-a-table" class="book-a-table">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -883,10 +884,10 @@
         </div>
 
       </div>
-    </section><!-- End Book A Table Section -->
+    </section><!-- End Book A Table Section --> --}}
 
     <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery section-bg">
+    {{-- <section id="gallery" class="gallery section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -909,7 +910,7 @@
         </div>
 
       </div>
-    </section><!-- End Gallery Section -->
+    </section><!-- End Gallery Section --> --}}
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -1014,7 +1015,7 @@
           </div>
 
         </div>
-
+{{--
         <div class="col-lg-3 col-md-6 footer-links d-flex">
           <i class="bi bi-telephone icon"></i>
           <div>
@@ -1024,15 +1025,14 @@
               <strong>Email:</strong> info@example.com<br>
             </p>
           </div>
-        </div>
+        </div> --}}
 
         <div class="col-lg-3 col-md-6 footer-links d-flex">
           <i class="bi bi-clock icon"></i>
           <div>
             <h4>Opening Hours</h4>
             <p>
-              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
-              Sunday: Closed
+              <strong>Every Day 4PM - CLOSED</strong>
             </p>
           </div>
         </div>
