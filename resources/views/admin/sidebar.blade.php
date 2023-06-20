@@ -8,14 +8,14 @@
 </li>
 
 @if (Auth::user()->level == '1')
-{{-- <li class="nav-item">
+<li class="nav-item">
 <a href="{{ url('web') }}" class="nav-link">
     <i class="nav-icon fas fa-light fa-house-user"></i>
     <p>
         Web
     </p>
 </a>
-</li > --}}
+</li >
 
 <li class="nav-item">
     <a href="{{ url('meja') }}" class="nav-link">

@@ -6,6 +6,9 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
+use App\Models\Meja;
+use App\Models\User;
+use App\Models\Web;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +24,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $data['meja'] = Meja::get();
+    $data['user'] = User::get();
+    $web = Web::get();
+    foreach ($web as $value) {
+        $data[$value->name] = $value->description;
+    }
+    // echo"<pre>";
+    // print_r($data['meja']);
+    // exit;
+    return view('index', $data);
 });
 
 Auth::routes();
@@ -32,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Admin Edit Web
     Route::get('web', [WebController::class, 'show']); // Show Content Website
-    Route::post('web', [WebController::class, 'createedit']); //Create Edit Insert Website
+    Route::post('web', [WebController::class, 'edit']); //Create Edit Insert Website
 
     // Admin Create QrCode and Table
     Route::get('meja', [MejaController::class, 'show']); //Show Content Table
@@ -51,6 +63,6 @@ Route::middleware(['auth'])->group(function () {
     // Admin Create User
     Route::get('user', [UserController::class, 'show']); // Show Tampilan User
     Route::post('user', [UserController::class, 'createedit']); // Create Edit Insert User
-    Route::get('userdelete/{id?}', [UserController::class, 'destory']); // Delete User
+    Route::get('userdelete/{id?}/{name?}', [UserController::class, 'destory']); // Delete User
 // Route::get('/home', [App\Http\Controllers\AdminController::class, 'index']);
 });

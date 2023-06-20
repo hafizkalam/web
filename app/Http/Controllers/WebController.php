@@ -13,7 +13,7 @@ class WebController extends Controller
         return view('admin.web', $data);
     }
 
-    function createedit(Request $request)
+    function edit(Request $request)
     {
 
         $vaUpdate = array("description" => $request->input('description'));

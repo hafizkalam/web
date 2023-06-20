@@ -33,6 +33,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th hidden> id</th>
                                     <th>No</th>
                                     <th>Nama Menu</th>
                                     <th>Harga</th>
@@ -46,6 +47,7 @@
                                 @foreach ($data as $value)
                                 <?php $no++ ;?>
                                 <tr>
+                                    <td hidden>{{ $value->id }}</td>
                                     <td>{{ $no }}</td>
                                     <td>{{ $value->name_menu }}</td>
                                     <td>{{ $value->harga_menu }}</td>
@@ -138,15 +140,15 @@
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-1 col-form-label">Nama Menu</label>
               <div class="col-sm-11">
-                <input type="text" name="name" id="name" class="form-control">
+                <input type="text" name="name_menu" id="name_menu" class="form-control">
                 <input type="text" name="id" id="id" class="d-none">
               </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-1 col-form-label">Harga</label>
               <div class="col-sm-11">
-                <input type="text" name="harga" id="harga" class="form-control">
-                <input type="text" name="id" id="id" class="d-none">
+                <input type="text" name="harga_menu" id="harga_menu" class="form-control">
+                {{-- <input type="text" name="id" id="id" class="d-none"> --}}
               </div>
             </div>
             <div class="form-group row">
@@ -158,8 +160,8 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-1 col-form-label">Description</label>
                 <div class="col-sm-11">
-                  <input type="text" name="harga" id="harga" class="form-control">
-                  <input type="text" name="id" id="id" class="d-none">
+                  <input type="text" name="desc_menu" id="desc_menu" class="form-control">
+                  {{-- <input type="text" name="id" id="id" class="d-none"> --}}
                 </div>
               </div>
           </div>
@@ -181,10 +183,12 @@
     $('#example1 tbody').on('click', 'tr', function() {
         var table = $('#example1').DataTable();
         var data = table.row(this).data();
-        $("#name_menu").val(data[1]);
-        $("#harga_menu").val(data[2]);
-        $("#foto_menu").val(data[3]);
-        $("#desc_menu").val(data[3]);
+        $("#id").val(data[0]);
+        $("#name_menu").val(data[2]);
+        $("#harga_menu").val(data[3]);
+        $("#foto_menu").val(data[4]);
+        $("#desc_menu").val(data[5]);
+        // alert(data[2]);
     });
 </script>
 @endsection

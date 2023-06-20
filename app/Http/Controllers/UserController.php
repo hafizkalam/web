@@ -12,7 +12,12 @@ class UserController extends Controller
 {
     public function show()
     {
+        $data['tenant'] = MasterTenant::get();
+        // $data['tenant1'] = MasterTenant::select('name_tenant')->groupBy('name_tenant')->get();
         $data['data'] = User::get();
+// echo "<pre>";
+// print_r($data['tenant1']);
+// exit;
 
         return view('admin.user', $data);
     }
@@ -34,12 +39,15 @@ class UserController extends Controller
             "password" => Hash::make("123"),
             "level" => "2",
             "profile" => "sdfsdf"/*$fileName*/,
-            "desc" => $test->name,
+            "desc" => $request->desc,
         );
 
         $vaTenant = array(
             "name_tenant" => $request->name
         );
+
+        // print_r($vaTenant);
+        // exit;
 
 
         if ($request->has('edit')) {
@@ -53,10 +61,10 @@ class UserController extends Controller
         return redirect('user');
     }
 
-    public function destory($id)
+    public function destory($id,$name)
     {
         User::where('id', $id)->delete();
-
+        MasterTenant::where('name_tenant', $name)->delete();
         return redirect('user');
     }
 }

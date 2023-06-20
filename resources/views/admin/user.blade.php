@@ -1,5 +1,47 @@
 @extends('admin.admin')
 
+{{-- <table border="1">
+    <tr>
+        <th>Nama Tenant</th>
+    </tr>
+    @foreach ($tenant1 as $value)
+        <tr>
+            <td>
+                <button>
+                <?php echo $value->name_tenant ?>
+                </button>
+            </td>
+        </tr>
+    @endforeach
+</table>
+
+<table border="1">
+    <tr>
+        <th>Nama Tenant</th>
+        <th>Nama Menu</th>
+        <th>Harga Menu</th>
+        <th>Deskripsi Menu</th>
+    </tr>
+    @foreach ($tenant as $value)
+        <tr>
+            <td>
+            <?php echo $value->name_tenant ?>
+            </td>
+            <td>
+            <?php echo $value->name_menu ?>
+            </td>
+            <td>
+                <?php echo $value->harga_menu ?>
+            </td>
+            <td>
+                <?php echo $value->desc_menu ?>
+            </td>
+        </tr>
+    @endforeach
+</table>
+
+{{ exit; }} --}}
+
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
@@ -19,6 +61,7 @@
 
 <!-- Main content -->
 <section class="content">
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -53,7 +96,7 @@
                                     <td><img width="100px" src="{{ url('/picture_profile/'.$value->url) }}"></td>
                                     <td>{{ $value->desc }}</td>
                                     <td>
-                                        <a href="userdelete/{{ $value->id }}" class="btn btn-danger float-right">Delete</a>
+                                        <a href="userdelete/{{ $value->id }}/{{ $value->name }}" class="btn btn-danger float-right">Delete</a>
 
                                         <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-edit">
                                             Edit

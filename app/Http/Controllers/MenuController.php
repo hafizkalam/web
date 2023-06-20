@@ -10,6 +10,7 @@ class MenuController extends Controller
 {
     public function show()
     {
+        $data = Auth::user();
         $test = Auth::user();
         $data['data'] = MasterTenant::where('name_tenant',$test->name)->get();
 // echo "<pre>";
@@ -20,22 +21,28 @@ class MenuController extends Controller
 
     public function createedit(Request $request)
     {
-        $data = $request->except('name_tenant');
 
-        $file = $request->foto_menu;
-        $fileName = $request->name_menu . time() . '.' . $file->extension();
-        $file->move(public_path('picture_menu'), $fileName);
+        $test = Auth::user();
+
+        // $file = $request->foto_menu;
+        // $fileName = $request->name_menu . time() . '.' . $file->extension();
+        // $file->move(public_path('picture_menu'), $fileName);
 
         $vaUpdate = array(
-            "name_tenant" => $data['name_tenant'],
+            // "id" => $request->id,
+            "name_tenant" => $test->name,
             "name_menu" => $request->name_menu,
             "harga_menu" => $request->harga_menu,
-            "foto_menu" => $fileName,
+            "foto_menu" => "asd"/*$fileName*/,
             "desc_menu" => $request->desc_menu,
         );
 
-        // MasterTenant::where('id', $id)->update($data);
-        MasterTenant::create($vaUpdate);
+        // print_r($vaUpdate);
+        // exit;
+
+
+        // MasterTenant::where('id', $request->id)->update($data);
+        // MasterTenant::create($vaUpdate);
 
         // echo("/picture_menu/".$fileName);
         // dd($vaUpdate);
@@ -45,12 +52,14 @@ class MenuController extends Controller
         //     $path = $request->file('url')->store('menu');
         //     $vaUpdate['url'] = $path;
         // }
-        // if ($request->has('edit')) {
-        //     Menu::where('id', $request->id)->update($vaUpdate);
-        // } else {
-        //     // echo "<script>alert('Your message Here');</script>";
-        //     Menu::create($vaUpdate);
-        // }
+        if ($request->has('edit')) {
+            // print_r($vaUpdate);
+            // exit;
+            MasterTenant::where('id', $request->id)->update($vaUpdate);
+        } else {
+            // echo "<script>alert('Your message Here');</script>";
+            MasterTenant::create($vaUpdate);
+        }
 
         return redirect('menu')->with('success', 'Data berhasil diperbarui.');
 

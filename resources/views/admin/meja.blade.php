@@ -25,19 +25,20 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{-- <form class="form-inline" action="{{ route('create') }}" method="POST"> --}}
+                    <form class="form-inline" action="create" method="POST">
                         @csrf
-                            <div class="form-group mb-8">
-                                <input type="text" class="form-control" name="no_meja" placeholder="Tambahkan Nomor Meja">
-                            </div>
-                            <button type="submit" class="btn btn-primary ml-1 mb-2">Create</button>
-                        </form>
+                        <div class="form-group mb-8">
+                            <input type="text" class="form-control" name="no_meja" placeholder="Tambahkan Nomor Meja">
+                        </div>
+                        <button type="submit" class="btn btn-primary ml-1 mb-2">Create</button>
+                    </form>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>No Meja</th>
                                 <th>QR code</th>
                                 <th>Action</th>
@@ -45,21 +46,17 @@
                         </thead>
                         <tbody>
                             <?php $no = 0;?>
-                                @foreach ($data as $value)
-                                <?php $no++ ;?>
-                                <tr>
-                                    <td>{{ $no }}</td>
-                                    <td>{{ $value->no_meja }}</td>
-                                    <td>
-                                        <a href="{{ route('generate',$value->id) }}" class="btn btn-primary" target="blank">Generate</a>
-                                    </td>
-                                    <td>
-                                        <a href="mejadelete/{{ $value->id }}" class="btn btn-danger float-right">Delete</a>
-
-                                        <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-edit">
-                                            Edit
-                                        </button>
-                                    </td>
+                            @foreach ($meja as $value)
+                            <?php $no++ ;?>
+                            <tr>
+                                <td>{{ $no }}</td>
+                                <td>{{ $value->no_meja }}</td>
+                                <td>
+                                    <a href="{{ ('qrcode/'.$value->id) }}" class="btn btn-primary" target="blank" >Generate</a>
+                                </td>
+                                <td>
+                                    <a href="mejadelete/{{ $value->id }}" class="btn btn-danger float-right">Delete</a>
+                                </td>
                              </tr>
                             @endforeach
                         </tbody>
@@ -76,11 +73,11 @@
 @section('script')
 <script>
     $("#example1").DataTable();
-    $('#example1 tbody').on('click', 'tr', function() {
-        var table = $('#example1').DataTable();
-        var data = table.row(this).data();
-        $("#description").val(data[2]);
-        $("#name").val(data[1]);
-    });
+    // $('#example1 tbody').on('click', 'tr', function() {
+    //     var table = $('#example1').DataTable();
+    //     var data = table.row(this).data();
+    //     $("#description").val(data[2]);
+    //     $("#name").val(data[1]);
+    // });
 </script>
 @endsection
