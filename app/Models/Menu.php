@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    use HasFactory;
-    public $fillable = ["name", "harga", "url"];
+//     use HasFactory;
+//     public $fillable = ["name", "harga", "url"];
 }

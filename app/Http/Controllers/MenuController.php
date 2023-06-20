@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\MasterTenant;
-use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,18 +20,26 @@ class MenuController extends Controller
 
     public function createedit(Request $request)
     {
-        $file = Request()->url;
-        $fileName = Request()->name.time().'.' . $file->extension();
+        $data = $request->except('name_tenant');
+
+        $file = $request->foto_menu;
+        $fileName = $request->name_menu . time() . '.' . $file->extension();
         $file->move(public_path('picture_menu'), $fileName);
 
         $vaUpdate = array(
-            "name" => $request->name,
-            "harga" => $request->harga,
-            "url" => $fileName,
+            "name_tenant" => $data['name_tenant'],
+            "name_menu" => $request->name_menu,
+            "harga_menu" => $request->harga_menu,
+            "foto_menu" => $fileName,
+            "desc_menu" => $request->desc_menu,
         );
+
+        // MasterTenant::where('id', $id)->update($data);
+        MasterTenant::create($vaUpdate);
+
         // echo("/picture_menu/".$fileName);
         // dd($vaUpdate);
-        MasterTenant::create($vaUpdate);
+        // MasterTenant::create($vaUpdate);
 
         // if ($request->hasFile('url')) {
         //     $path = $request->file('url')->store('menu');
@@ -45,13 +52,13 @@ class MenuController extends Controller
         //     Menu::create($vaUpdate);
         // }
 
-        return redirect('menu');
+        return redirect('menu')->with('success', 'Data berhasil diperbarui.');
 
     }
 
     public function destory($id)
     {
-        Menu::where('id', $id)->delete();
+        MasterTenant::where('id', $id)->delete();
 
         return redirect('menu');
     }

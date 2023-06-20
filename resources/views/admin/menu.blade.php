@@ -37,6 +37,7 @@
                                     <th>Nama Menu</th>
                                     <th>Harga</th>
                                     <th>Foto</th>
+                                    <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -46,9 +47,10 @@
                                 <?php $no++ ;?>
                                 <tr>
                                     <td>{{ $no }}</td>
-                                    <td>{{ $value->name }}</td>
-                                    <td>Rp.{{ $value->harga }}</td>
-                                    <td><img width="100px" src="{{ url('/picture_menu/'.$value->url) }}"></td>
+                                    <td>{{ $value->name_menu }}</td>
+                                    <td>{{ $value->harga_menu }}</td>
+                                    <td><img width="100px" src="{{ url('/picture_menu/'.$value->foto_menu) }}"></td>
+                                    <td>{{ $value->desc_menu }}</td>
                                     <td>
                                         <a href="menudelete/{{ $value->id }}" class="btn btn-danger float-right">Delete</a>
 
@@ -82,27 +84,33 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-1 col-form-label">Nama Menu</label>
-                <div class="col-sm-11">
-                  <input type="text" name="name" class="form-control">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-1 col-form-label">Harga</label>
-                <div class="col-sm-11">
-                  <input type="text" name="harga" class="form-control">
-                </div>
-              </div>
-              <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-1 col-form-label">Foto</label>
-              <div class="col-sm-11">
-                <input type="file" name="url" class="form-control">
-              </div>
             </div>
-          </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-1 col-form-label">Nama Menu</label>
+                    <div class="col-sm-11">
+                    <input type="text" name="name_menu" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-1 col-form-label">Harga</label>
+                    <div class="col-sm-11">
+                    <input type="text" name="harga_menu" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-1 col-form-label">Foto</label>
+                    <div class="col-sm-11">
+                        <input type="file" name="foto_menu" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-1 col-form-label">Description</label>
+                    <div class="col-sm-11">
+                    <input type="text" name="desc_menu" class="form-control">
+                    </div>
+                </div>
+            </div>
           <div class="modal-footer justify-content-between bg-light">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save </button>
@@ -144,9 +152,16 @@
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-1 col-form-label">Foto</label>
               <div class="col-sm-11">
-                <input type="file" name="url" class="form-control">
+                <input type="file" name="foto_menu" class="form-control">
               </div>
             </div>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-1 col-form-label">Description</label>
+                <div class="col-sm-11">
+                  <input type="text" name="harga" id="harga" class="form-control">
+                  <input type="text" name="id" id="id" class="d-none">
+                </div>
+              </div>
           </div>
           <div class="modal-footer justify-content-between bg-light">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -166,9 +181,10 @@
     $('#example1 tbody').on('click', 'tr', function() {
         var table = $('#example1').DataTable();
         var data = table.row(this).data();
-        $("#name").val(data[1]);
-        $("#harga").val(data[2]);
-        $("#url").val(data[3]);
+        $("#name_menu").val(data[1]);
+        $("#harga_menu").val(data[2]);
+        $("#foto_menu").val(data[3]);
+        $("#desc_menu").val(data[3]);
     });
 </script>
 @endsection

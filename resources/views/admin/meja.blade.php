@@ -38,8 +38,9 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">No Meja</th>
-                                <th scope="col">QR code</th>
+                                <th>No Meja</th>
+                                <th>QR code</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,6 +52,13 @@
                                     <td>{{ $value->no_meja }}</td>
                                     <td>
                                         <a href="{{ route('generate',$value->id) }}" class="btn btn-primary" target="blank">Generate</a>
+                                    </td>
+                                    <td>
+                                        <a href="mejadelete/{{ $value->id }}" class="btn btn-danger float-right">Delete</a>
+
+                                        <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-edit">
+                                            Edit
+                                        </button>
                                     </td>
                              </tr>
                             @endforeach

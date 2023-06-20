@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('meja', [MejaController::class, 'show']); //Show Content Table
     Route::post('create', [MejaController::class, 'create']); // Store to database
     Route::get('qrcode/{id}', [MejaController::class, 'generate']); // Generate QrCode
+    Route::get('mejadelete/{id?}', [MejaController::class, 'destory']); // Delete Meja
 
     // Admin View Transaction
     Route::get('transaksi', [TransaksiController::class, 'show']); // Show Content Transaction
