@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function show()
     {
-        $data['tenant'] = MasterTenant::get();
+        $data['tenant'] = MasterTenant::whereNotNull('name_menu')->get();
         // $data['tenant1'] = MasterTenant::select('name_tenant')->groupBy('name_tenant')->get();
         $data['data'] = User::get();
 // echo "<pre>";

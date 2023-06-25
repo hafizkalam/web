@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Web;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//localhost:8000/
 Route::get('/', function () {
+    $session = new Session();
+    $session->set('faktur', '');
+    // dd(Session::get('currency'));
+    $data = Auth::routes();
     $data['meja'] = Meja::get();
     $data['user'] = User::get();
     $web = Web::get();
@@ -35,6 +40,9 @@ Route::get('/', function () {
     // exit;
     return view('index', $data);
 });
+
+// Localhost:8000/login
+Route::get('nomeja/{id?}', [WebController::class, 'showmenu']);
 
 Auth::routes();
 

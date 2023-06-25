@@ -9,8 +9,9 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MejaController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
+        // dd($request->session()->get('nofaktur'));
         $data['user'] = Auth::user();
         $data['meja'] = Meja::get();
         // print_r($data['meja']);
@@ -30,8 +31,10 @@ class MejaController extends Controller
 
     public function generate($id)
     {
+
         $data = Meja::findOrFail($id);
-        $qrcode = QrCode::size(300)->generate("http://127.0.0.1:8000/"."$data->no_meja");
+        // $qrcode = QrCode::size(300)->generate("http://127.0.0.1:8000/nomeja/"."$data->no_meja");
+        $qrcode = QrCode::size(300)->generate("http://127.0.0.1:8000/coba/"."$data->no_meja");
         return view('admin.qrcode', compact('qrcode'));
     }
 

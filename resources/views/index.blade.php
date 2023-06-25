@@ -80,7 +80,7 @@
           </li> --}}
           {{-- <li><a href="#contact">Contact</a></li> --}}
           <li>
-            <button class="bg-primary rounded-pill text-white ">
+            <button class="bg-primary rounded-pill text-white" >
             Table Number
             </button></li>
           {{-- <li><a class="btn" href="{{url('login')}}">Login</a></li> --}}
@@ -766,7 +766,7 @@
       <div class="container" data-aos="fade-up" >
         <div class="section-header">
           <h2>Outlet</h2>
-          <p>TenantContent </p>
+          <p>Our Stands</p>
         </div >
         <div class="row gy-4" >
             <?php foreach ($user as $value) {?>
@@ -774,7 +774,7 @@
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-toggle="modal" data-target="#modal-tambah">
                     <div class="chef-member">
                         <div class="member-img">
-                            <img src="assets/img/chefs/chefs-1.jpg " class="img-fluid" alt="">
+                            {{ $value->profile }}
                         </div>
                         <div class="member-info">
                             <h4>{{ $value->name }}</h4>
