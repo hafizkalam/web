@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level',
+        'profile',
+        'desc',
     ];
 
     /**
@@ -42,4 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public $timestamps = false;
+
+    public function tenant()
+    {
+        return $this->belongsTo(MasterTenant::class, 'id_master_tenant');
+    }
 }
